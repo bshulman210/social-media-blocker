@@ -27,16 +27,11 @@ const socialAccounts = [
   'www.peacock.com',
 ];
 
-localStorage.setItem('counter', '0');
-
-const pageHTML = (num) => {
-  // console.log(num);
-
+const pageHTML = () => {
   return `<div class="main">
     <div class="header1">HOW DARE YOU 😱</div>
     <hr>
     <div class="header2">GET BACK TO WORK!</div>
-    <div class="strikes">ATTEMPTS: ${num}</div>
   </div>`;
 };
 
@@ -94,11 +89,6 @@ const pageStyling = () => {
 };
 
 if (socialAccounts.includes(window.location.hostname)) {
-  let attemptCounter = Number(localStorage.getItem('counter'));
-  attemptCounter = attemptCounter + 1;
-  let stringMe = attemptCounter.toString();
-  localStorage.setItem('counter', stringMe);
-  console.log(attemptCounter);
   document.head.innerHTML = pageStyling();
-  document.body.innerHTML = pageHTML(attemptCounter);
+  document.body.innerHTML = pageHTML();
 }
